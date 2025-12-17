@@ -1,3 +1,4 @@
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -5,7 +6,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   define: {
-    'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
-    'process.env.TEACHER_PASSWORD': JSON.stringify(process.env.TEACHER_PASSWORD),
+    // Injecte les variables d'environnement système (Vercel) ou locales
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || process.env.VITE_API_KEY),
+    'process.env.TEACHER_PASSWORD': JSON.stringify(process.env.TEACHER_PASSWORD || process.env.VITE_TEACHER_PASSWORD || 'admin'),
   },
 });
