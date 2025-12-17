@@ -8,7 +8,7 @@ export function base64ToArrayBuffer(base64: string): ArrayBuffer {
   for (let i = 0; i < len; i++) {
     bytes[i] = binaryString.charCodeAt(i);
   }
-  return bytes.buffer;
+  return bytes.buffer as ArrayBuffer;
 }
 
 export async function decodeAudioData(
@@ -39,7 +39,7 @@ export function float32ToInt16(float32Array: Float32Array): Int16Array {
   return int16Array;
 }
 
-export function arrayBufferToBase64(buffer: ArrayBufferLike): string {
+export function arrayBufferToBase64(buffer: ArrayBuffer): string {
   let binary = '';
   const bytes = new Uint8Array(buffer);
   const len = bytes.byteLength;
@@ -51,7 +51,7 @@ export function arrayBufferToBase64(buffer: ArrayBufferLike): string {
 
 export function createPcmBlob(data: Float32Array): Blob {
   const int16Array = float32ToInt16(data);
-  const base64 = arrayBufferToBase64(int16Array.buffer);
+  const base64 = arrayBufferToBase64(int16Array.buffer as ArrayBuffer);
   return {
     data: base64,
     mimeType: 'audio/pcm;rate=16000',
