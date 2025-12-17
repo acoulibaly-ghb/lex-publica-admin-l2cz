@@ -1,6 +1,6 @@
 
-// This hook has been deprecated and moved directly into components/VoiceChat.tsx
-// to improve stability and prevent audio context issues on mobile/Mac.
-export const useLiveSession = () => {
-  return {};
-};
+/**
+ * Obsolète : La logique a été déplacée dans VoiceChat.tsx pour assurer 
+ * une meilleure stabilité audio sur Mac et Mobile.
+ */
+export const useLiveSession = () => ({});
