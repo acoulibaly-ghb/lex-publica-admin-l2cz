@@ -1,7 +1,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-// Fixed: Replaced non-existent member ListSearch with Search icon from lucide-react.
-import { Send, Bot, User, Loader2, Plus, MessageSquare, X, PanelLeftClose, PanelLeft, Lightbulb, HelpCircle, CheckCircle, FileText, Paperclip, Trash2, Scale, BookOpen, ShieldCheck, Gavel, Layout, Search } from 'lucide-react';
+import { 
+  Send, Bot, User, Loader2, Plus, MessageSquare, X, 
+  PanelLeftClose, PanelLeft, Lightbulb, HelpCircle, 
+  CheckCircle, FileText, Paperclip, Trash2, Scale, 
+  BookOpen, ShieldCheck, Gavel, Layout, Search, Edit2, Check
+} from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 import ReactMarkdown from 'react-markdown';
 import { ChatMessage } from '../types';
@@ -25,6 +29,8 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
     activeSessionId, 
     setActiveSessionId, 
     createNewSession, 
+    deleteSession,
+    renameSession,
     addMessageToSession,
     activeSession 
   } = useChatStore();
@@ -35,6 +41,10 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [attachedFile, setAttachedFile] = useState<AttachedFile | null>(null);
   
+  // States for renaming
+  const [editingSessionId, setEditingSessionId] = useState<string | null>(null);
+  const [renameValue, setRenameValue] = useState('');
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -47,7 +57,6 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
     scrollToBottom();
   }, [activeSession?.messages, isLoading]);
 
-  // Ajustement automatique de la hauteur du textarea
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
@@ -74,6 +83,8 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
       });
     };
     reader.readAsDataURL(file);
+    // Reset to allow re-uploading the same file if deleted
+    e.target.value = '';
   };
 
   const sendMessage = async (overrideInput?: string) => {
@@ -82,7 +93,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
     
     if ((!text && !attachedFile) || isLoading || !activeSessionId) return;
 
-    const displayMsgText = attachedFile ? `[Fichier: ${attachedFile.name}]\n${text}` : text;
+    const displayMsgText = attachedFile ? `[Analyse du fichier: ${attachedFile.name}]\n${text}` : text;
     const userMsg: ChatMessage = { 
         role: 'user', 
         text: displayMsgText, 
@@ -96,9 +107,8 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
     setIsLoading(true);
 
     try {
-      // Corrected: Initializing GoogleGenAI client with apiKey parameter.
       const ai = new GoogleGenAI({ apiKey });
-      const fullSystemInstruction = `${systemInstruction}\n\nCONTENU DU COURS MAGISTRAL (Source Prioritaire) :\n${courseContent}`;
+      const fullSystemInstruction = `${systemInstruction}\n\nCONTENU DU COURS MAGISTRAL :\n${courseContent}`;
       
       const parts: any[] = [];
       if (text) parts.push({ text });
@@ -113,7 +123,6 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
         });
       }
 
-      // Corrected: Using ai.models.generateContent to query GenAI.
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: [
@@ -128,7 +137,6 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
         }
       });
 
-      // Corrected: Directly accessing the .text property of GenerateContentResponse.
       const responseText = response.text || "Désolé, je n'ai pas pu générer de réponse.";
       
       addMessageToSession(activeSessionId, {
@@ -141,7 +149,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
       console.error(error);
       addMessageToSession(activeSessionId, {
         role: 'model',
-        text: "Une erreur est survenue. Le fichier est peut-être trop volumineux ou la clé API est saturée.",
+        text: "Une erreur est survenue lors de l'analyse. Vérifiez que le PDF n'est pas protégé par mot de passe.",
         timestamp: new Date(),
         isError: true
       });
@@ -160,14 +168,27 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
   const handleQuickAction = (action: string) => {
     let prompt = "";
     switch(action) {
-        case 'explain': prompt = "Peux-tu m'expliquer une notion complexe du cours ?"; break;
-        case 'quiz': prompt = "Pose-moi une question de cours pour tester mes connaissances."; break;
-        case 'qcm': prompt = "Propose-moi un QCM à 3 choix sur une partie du cours."; break;
-        case 'juris': prompt = "Quels sont les arrêts de principe essentiels à retenir dans ce cours ?"; break;
-        case 'dissert': prompt = "Propose-moi un sujet de dissertation et un plan détaillé basé sur le cours."; break;
-        case 'glossary': prompt = "Dresse-moi un glossaire des 10 termes juridiques les plus importants du cours."; break;
+        case 'juris': prompt = "Quels sont les arrêts de principe essentiels à retenir sur ce thème ?"; break;
+        case 'dissert': prompt = "Propose-moi un sujet de dissertation et un plan détaillé structuré (I/ II/) basé sur le cours."; break;
+        case 'explain': prompt = "Explique-moi ce concept de manière très pédagogique avec des exemples."; break;
+        case 'glossary': prompt = "Dresse un glossaire des termes juridiques clés abordés dans cette partie."; break;
+        case 'quiz': prompt = "Pose-moi une question de cours difficile pour tester mon niveau."; break;
     }
     if (prompt) sendMessage(prompt);
+  };
+
+  const startRenaming = (e: React.MouseEvent, session: any) => {
+    e.stopPropagation();
+    setEditingSessionId(session.id);
+    setRenameValue(session.title);
+  };
+
+  const saveRename = (e: React.MouseEvent | React.KeyboardEvent, id: string) => {
+    e.stopPropagation();
+    if (renameValue.trim()) {
+      renameSession(id, renameValue.trim());
+    }
+    setEditingSessionId(null);
   };
 
   return (
@@ -182,7 +203,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                 <div className="p-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-lg">
                   <Lightbulb size={24} />
                 </div>
-                <h3 className="font-serif font-bold text-lg">Guide de l'Assistant</h3>
+                <h3 className="font-serif font-bold text-lg">Nouvelles Fonctionnalités</h3>
               </div>
               <button onClick={() => setIsHelpOpen(false)} className="text-slate-400 hover:text-slate-600 p-2 rounded-full transition-colors">
                 <X size={20} />
@@ -195,29 +216,28 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                   <Paperclip size={18} className="text-blue-600" />
                   Analyse de PDF
                 </h4>
-                <p>Joignez un arrêt de la jurisprudence (CE, TC, CC) ou un texte de loi au format PDF. L'IA l'étudiera sous l'angle de votre cours magistral.</p>
+                <p>Cliquez sur le trombone pour joindre un arrêt ou un document. L'IA l'analysera pour vous en se basant sur les principes de votre cours.</p>
               </section>
 
               <section>
                 <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2">
-                  <MessageSquare size={18} className="text-blue-600" />
-                  Éditeur étendu
+                  <Layout size={18} className="text-blue-600" />
+                  Boutons d'Actions Rapides
                 </h4>
-                <p>La zone de saisie s'adapte à vos questions longues. <strong>Entrée</strong> envoie le message, <strong>Maj+Entrée</strong> permet d'aller à la ligne.</p>
+                <p>Utilisez les boutons au-dessus de la saisie pour générer instantanément des plans de dissertation, des glossaires ou extraire la jurisprudence.</p>
               </section>
 
-              <section className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800/50">
-                <div className="flex gap-3">
-                  <ShieldCheck size={20} className="text-blue-600 shrink-0" />
-                  <p className="text-xs italic leading-relaxed">
-                    Note : Pour une précision optimale, l'IA privilégie toujours les définitions et principes présents dans le cours déposé par votre professeur.
-                  </p>
-                </div>
+              <section>
+                <h4 className="font-semibold text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2">
+                  <Edit2 size={18} className="text-blue-600" />
+                  Gestion de l'Historique
+                </h4>
+                <p>Dans la barre latérale, vous pouvez désormais <strong>renommer</strong> vos conversations pour mieux vous organiser ou les <strong>supprimer</strong>.</p>
               </section>
             </div>
             
             <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800">
-              <button onClick={() => setIsHelpOpen(false)} className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-md transition-all">Fermer</button>
+              <button onClick={() => setIsHelpOpen(false)} className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium shadow-md transition-all">J'ai compris</button>
             </div>
           </div>
         </div>
@@ -230,13 +250,47 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                 <h3 className="font-serif font-bold">Historique</h3>
                 <button onClick={() => setIsSidebarOpen(false)} className="p-2 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors"><PanelLeftClose size={20} /></button>
             </div>
-            <button onClick={() => { createNewSession(); setIsSidebarOpen(false); }} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all shadow-sm"><Plus size={18} /><span>Nouveau</span></button>
+            <button onClick={() => { createNewSession(); setIsSidebarOpen(false); }} className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all shadow-sm"><Plus size={18} /><span>Nouvelle session</span></button>
         </div>
-        <div className="flex-1 overflow-y-auto p-3 space-y-1">
+        <div className="flex-1 overflow-y-auto p-2 space-y-1">
             {sessions.map(session => (
-                <div key={session.id} onClick={() => { setActiveSessionId(session.id); setIsSidebarOpen(false); }} className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm cursor-pointer transition-all ${activeSessionId === session.id ? 'bg-white dark:bg-slate-800 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 font-medium' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50'}`}>
-                    <MessageSquare size={18} className="shrink-0" />
-                    <span className="flex-1 truncate">{session.title}</span>
+                <div 
+                    key={session.id} 
+                    onClick={() => { setActiveSessionId(session.id); setIsSidebarOpen(false); }} 
+                    className={`group flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm cursor-pointer transition-all ${activeSessionId === session.id ? 'bg-white dark:bg-slate-800 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700 font-medium' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50'}`}
+                >
+                    <MessageSquare size={16} className="shrink-0" />
+                    
+                    {editingSessionId === session.id ? (
+                        <input 
+                            autoFocus
+                            value={renameValue}
+                            onChange={(e) => setRenameValue(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && saveRename(e, session.id)}
+                            onBlur={(e) => saveRename(e as any, session.id)}
+                            onClick={(e) => e.stopPropagation()}
+                            className="flex-1 bg-slate-100 dark:bg-slate-700 px-1 rounded border-none outline-none focus:ring-1 focus:ring-blue-500"
+                        />
+                    ) : (
+                        <span className="flex-1 truncate">{session.title}</span>
+                    )}
+
+                    <div className="flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button 
+                            onClick={(e) => startRenaming(e, session)} 
+                            className="p-1 text-slate-400 hover:text-blue-500"
+                            title="Renommer"
+                        >
+                            <Edit2 size={14} />
+                        </button>
+                        <button 
+                            onClick={(e) => deleteSession(session.id, e)} 
+                            className="p-1 text-slate-400 hover:text-red-500"
+                            title="Supprimer"
+                        >
+                            <Trash2 size={14} />
+                        </button>
+                    </div>
                 </div>
             ))}
         </div>
@@ -244,17 +298,17 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
 
       {/* Chat Area */}
       <div className="flex-1 flex flex-col min-w-0 bg-slate-50/50 dark:bg-slate-950">
-          <header className="p-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between z-10 sticky top-0">
+          <header className="p-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between z-10 sticky top-0 shadow-sm">
               <div className="flex items-center gap-3">
                 <button onClick={() => setIsSidebarOpen(true)} className="p-2 -ml-2 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"><PanelLeft size={20} /></button>
-                <span className="font-semibold truncate text-slate-700 dark:text-slate-200">{activeSession?.title || 'Assistant de Révision'}</span>
+                <span className="font-semibold truncate text-slate-700 dark:text-slate-200">{activeSession?.title || 'Révision'}</span>
               </div>
-              <button onClick={() => setIsHelpOpen(true)} className="p-2 text-slate-400 hover:text-amber-500 transition-colors"><Lightbulb size={22} /></button>
+              <button onClick={() => setIsHelpOpen(true)} className="p-2 text-slate-400 hover:text-amber-500 transition-colors" title="Aide et astuces"><Lightbulb size={22} /></button>
           </header>
 
           <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
             {activeSession?.messages.map((msg, idx) => (
-              <div key={idx} className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+              <div key={idx} className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
                   <div className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center ${msg.role === 'model' ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-300 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>
                       {msg.role === 'model' ? <Bot size={20} /> : <User size={20} />}
                   </div>
@@ -268,7 +322,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
             {isLoading && (
                 <div className="flex gap-4 animate-pulse">
                     <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-md"><Bot size={20} /></div>
-                    <div className="bg-white dark:bg-slate-800 px-5 py-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700">
+                    <div className="bg-white dark:bg-slate-800 px-5 py-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm">
                         <Loader2 className="animate-spin text-blue-600 inline-block mr-2" size={16} />
                         <span className="text-slate-500 text-sm">Réflexion juridique...</span>
                     </div>
@@ -278,14 +332,13 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-            {/* BOUTONS D'ACTIONS RAPIDES (Enrichis) */}
-            <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
-                <button onClick={() => handleQuickAction('juris')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-blue-700 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800/50 rounded-lg hover:bg-blue-100 transition-all whitespace-nowrap shadow-sm"><Gavel size={14} /> Arrêts de principe</button>
-                <button onClick={() => handleQuickAction('dissert')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-indigo-700 bg-indigo-50 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800/50 rounded-lg hover:bg-indigo-100 transition-all whitespace-nowrap shadow-sm"><Layout size={14} /> Plan dissertation</button>
-                <button onClick={() => handleQuickAction('explain')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/50 rounded-lg hover:bg-emerald-100 transition-all whitespace-nowrap shadow-sm"><BookOpen size={14} /> Notion clé</button>
-                {/* Fixed: Replaced non-existent member ListSearch with Search icon from lucide-react. */}
+            {/* BOUTONS D'ACTIONS RAPIDES */}
+            <div className="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar">
+                <button onClick={() => handleQuickAction('juris')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-blue-700 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800/50 rounded-lg hover:bg-blue-100 transition-all whitespace-nowrap shadow-sm"><Gavel size={14} /> Jurisprudence</button>
+                <button onClick={() => handleQuickAction('dissert')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-indigo-700 bg-indigo-50 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800/50 rounded-lg hover:bg-indigo-100 transition-all whitespace-nowrap shadow-sm"><Layout size={14} /> Plan Dissertation</button>
+                <button onClick={() => handleQuickAction('explain')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-emerald-700 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/50 rounded-lg hover:bg-emerald-100 transition-all whitespace-nowrap shadow-sm"><BookOpen size={14} /> Expliquer notion</button>
                 <button onClick={() => handleQuickAction('glossary')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-amber-700 bg-amber-50 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-100 dark:border-amber-800/50 rounded-lg hover:bg-amber-100 transition-all whitespace-nowrap shadow-sm"><Search size={14} /> Glossaire</button>
-                <button onClick={() => handleQuickAction('quiz')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-rose-700 bg-rose-50 dark:bg-rose-900/30 dark:text-rose-300 border border-rose-100 dark:border-rose-800/50 rounded-lg hover:bg-rose-100 transition-all whitespace-nowrap shadow-sm"><HelpCircle size={14} /> Question Quiz</button>
+                <button onClick={() => handleQuickAction('quiz')} className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-rose-700 bg-rose-50 dark:bg-rose-900/30 dark:text-rose-300 border border-rose-100 dark:border-rose-800/50 rounded-lg hover:bg-rose-100 transition-all whitespace-nowrap shadow-sm"><HelpCircle size={14} /> Quiz difficile</button>
             </div>
 
             {/* PREVIEW DU FICHIER PDF JOINT */}
@@ -294,7 +347,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                     <div className="p-2 bg-red-100 text-red-600 rounded-lg shadow-inner"><FileText size={20} /></div>
                     <div className="flex-1 min-w-0">
                         <p className="text-xs font-bold truncate text-slate-800 dark:text-slate-200">{attachedFile.name}</p>
-                        <p className="text-[10px] text-slate-500 font-medium">Prêt pour analyse</p>
+                        <p className="text-[10px] text-slate-500 font-medium tracking-wide">Document prêt pour analyse</p>
                     </div>
                     <button onClick={() => setAttachedFile(null)} className="p-2 text-slate-400 hover:text-red-500 transition-colors"><Trash2 size={18} /></button>
                 </div>
@@ -317,7 +370,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Posez votre question sur le droit public..."
+                    placeholder="Écrivez votre question de droit public..."
                     className="flex-1 py-3 bg-transparent border-none focus:ring-0 resize-none text-slate-800 dark:text-white max-h-[200px] text-sm md:text-base placeholder:text-slate-400"
                 />
 
@@ -329,8 +382,8 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                   <Send size={20} />
                 </button>
             </div>
-            <div className="mt-2 flex justify-center items-center gap-4 text-[10px] text-slate-400 font-medium uppercase tracking-wider">
-                <span>Maj + Entrée pour un saut de ligne</span>
+            <div className="mt-2 flex justify-center items-center gap-4 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
+                <span>Maj + Entrée pour saut de ligne</span>
                 <span className="h-1 w-1 rounded-full bg-slate-300"></span>
                 <span>Entrée pour envoyer</span>
             </div>
