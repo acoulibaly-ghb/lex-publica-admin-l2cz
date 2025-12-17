@@ -107,7 +107,7 @@ const App = () => {
 
         <nav className="flex-1 p-4 space-y-2">
             <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:block">
-                Espace Étudiant
+                Espace public
             </div>
             <button 
                 onClick={() => setActiveMode(AppMode.TEXT)}
