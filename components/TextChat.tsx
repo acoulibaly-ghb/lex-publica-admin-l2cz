@@ -185,12 +185,21 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                 <button onClick={() => setIsSidebarOpen(true)} className="p-2 -ml-2 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"><PanelLeft size={20} /></button>
                 <span className="font-serif font-bold text-slate-800 dark:text-slate-100 truncate">{activeSession?.title || 'Session de Droit'}</span>
               </div>
-              <button onClick={() => setIsHelpOpen(true)} className="p-2 text-slate-400 hover:text-amber-500 transition-colors"><Lightbulb size={22} /></button>
+              <button 
+                onClick={(e) => {
+                    e.preventDefault();
+                    setIsHelpOpen(true);
+                }} 
+                className="p-2 text-slate-400 hover:text-amber-500 transition-all active:scale-90" 
+                title="Guide d'utilisation"
+              >
+                <Lightbulb size={24} />
+              </button>
           </header>
 
           <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
             {activeSession?.messages.map((msg, idx) => (
-              <div key={idx} className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+              <div key={idx} className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                   <div className={`flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center ${msg.role === 'model' ? 'bg-blue-700 text-white shadow-md' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}>
                       {msg.role === 'model' ? <Scale size={20} /> : <User size={20} />}
                   </div>
@@ -202,11 +211,11 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
               </div>
             ))}
             {isLoading && (
-                <div className="flex gap-4 animate-pulse">
+                <div className="flex gap-4">
                     <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center text-white"><Scale size={20} /></div>
                     <div className="bg-white dark:bg-slate-800 px-5 py-3 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700">
                         <Loader2 className="animate-spin text-blue-700 inline-block mr-2" size={16} />
-                        <span className="text-slate-500 text-sm italic">Le professeur réfléchit...</span>
+                        <span className="text-slate-500 text-sm italic">Analyse doctrinale...</span>
                     </div>
                 </div>
             )}
@@ -247,6 +256,56 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
             </div>
           </div>
       </div>
+
+      {/* MODALE D'AIDE - DÉPLACÉE ICI POUR ÊTRE TOUJOURS AU-DESSUS */}
+      {isHelpOpen && (
+        <div className="absolute inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm transition-opacity">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-lg flex flex-col max-h-[90%] overflow-hidden border border-slate-200 dark:border-slate-700">
+            <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-lg">
+                  <Lightbulb size={24} />
+                </div>
+                <h3 className="font-serif font-bold text-lg text-slate-800 dark:text-white">Guide de l'Étudiant</h3>
+              </div>
+              <button onClick={() => setIsHelpOpen(false)} className="text-slate-400 hover:text-slate-600 p-2 rounded-full transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="p-6 overflow-y-auto space-y-6 text-sm text-slate-600 dark:text-slate-400">
+              <section className="space-y-2">
+                <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                  <Paperclip size={18} className="text-blue-600" />
+                  Analyse de Documents PDF
+                </h4>
+                <p>Utilisez le trombone pour joindre un arrêt ou un document de TD. L'IA l'analysera à la lumière des principes vus en cours magistral.</p>
+              </section>
+
+              <section className="space-y-2">
+                <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                  <Layout size={18} className="text-blue-600" />
+                  Actions Juridiques Rapides
+                </h4>
+                <p>Les boutons au-dessus de la saisie permettent de générer des plans de dissertation, des fiches d'arrêt ou des glossaires instantanément.</p>
+              </section>
+
+              <section className="space-y-2">
+                <h4 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                  <Edit2 size={18} className="text-blue-600" />
+                  Historique Personnalisé
+                </h4>
+                <p>Renommez vos sessions de révision dans la barre latérale pour mieux organiser vos thématiques (ex: "Police Administrative", "Recours pour Excès de Pouvoir").</p>
+              </section>
+            </div>
+            
+            <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800">
+              <button onClick={() => setIsHelpOpen(false)} className="w-full py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl font-bold shadow-md transition-all">Retourner au cours</button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
