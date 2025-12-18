@@ -130,7 +130,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
   const handleQuickAction = (action: string) => {
     let prompt = "";
     switch(action) {
-        case 'juris': prompt = "Quels sont les arrêts de principe essentiels à retenir dans ce cours ?"; break;
+        case 'juris': prompt = "Explique-moi simplement la notion suivante :"; break;
         case 'dissert': prompt = "Propose-moi un sujet de dissertation et un plan détaillé (I. II.) basé sur le cours."; break;
         case 'fiche': prompt = "Aide-moi à faire une fiche d'arrêt méthodologique sur la base de mes dernières questions."; break;
         case 'glossary': prompt = "Dresse-moi un glossaire des 5 termes juridiques les plus complexes de ce cours."; break;
