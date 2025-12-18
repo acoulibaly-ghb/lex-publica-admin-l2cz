@@ -216,7 +216,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                     <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center text-white"><Scale size={20} /></div>
                     <div className="bg-white dark:bg-slate-800 px-5 py-3 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700">
                         <Loader2 className="animate-spin text-blue-700 inline-block mr-2" size={16} />
-                        <span className="text-slate-500 text-sm italic">Analyse doctrinale...</span>
+                        <span className="text-slate-500 text-sm italic">Analyse en cours...</span>
                     </div>
                 </div>
             )}
