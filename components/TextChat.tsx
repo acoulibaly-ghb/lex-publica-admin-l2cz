@@ -250,7 +250,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), sendMessage())}
-                    placeholder="Posez votre question juridique..."
+                    placeholder="Posez votre question..."
                     className="flex-1 py-3 bg-transparent !border-none outline-none shadow-none focus:ring-0 resize-none text-slate-800 dark:text-white max-h-[200px] text-sm md:text-base"                    
                 />
                 <button onClick={() => sendMessage()} disabled={(!input.trim() && !attachedFile) || isLoading} className="p-3 bg-blue-700 text-white rounded-xl hover:bg-blue-800 shadow-lg disabled:opacity-50 active:scale-95 transition-all"><Send size={20} /></button>
