@@ -160,8 +160,8 @@ export const VoiceChat: React.FC<VoiceChatProps> = ({ courseContent, systemInstr
       
       <div className="z-10 flex flex-col items-center gap-8 p-10 text-center w-full">
         <div className="space-y-3">
-            <h2 className="text-3xl font-serif font-bold text-white tracking-tight">Colloque Vocal Direct</h2>
-            <p className="text-slate-400 text-sm max-w-xs mx-auto">Interrogez votre professeur virtuel comme si vous étiez en cours particulier.</p>
+            <h2 className="text-3xl font-serif font-bold text-white tracking-tight">Vocal (Live)</h2>
+            <p className="text-slate-400 text-sm max-w-xs mx-auto">Échangez avec Ada comme si vous étiez en cours particulier.</p>
         </div>
 
         <div className="relative">
