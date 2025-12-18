@@ -132,7 +132,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
         case 'juris': prompt = "Explique-moi de manière pédagogique la notion suivante :"; break;
         case 'dissert': prompt = "Propose-moi un sujet de dissertation et un plan détaillé (I. II.) basé sur le cours."; break;
         case 'fiche': prompt = "Soumets-moi un petit cas pratique sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
-        case 'glossary': prompt = "Génère un QCM de 3 questions sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
+        case 'glossary': prompt = "Génère un QCM de 3 questions. Laiise-moi choisr les thèmes du cours sur lesquels il porte."; break;
         case 'cas': prompt = "Propose-moi trois affirmations Vrai/Faux sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
     }
     if (prompt) sendMessage(prompt);
