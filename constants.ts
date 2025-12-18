@@ -57,8 +57,6 @@ Soit le juge a qualifié de service public cette activité en estimant qu’elle
 Définition : Un service public est une activité exercée par une personne publique ou par une personne privée (avec l’habilitation et sous le contrôle d'une personne publique) en vue, principalement, de répondre à un besoin d'intérêt général. 
 Cette définition est basée sur l’arrêt du Conseil d’État du 22 février 2007, Association du Personnel Relevant des Établissements pour Inadaptés (A.P.R.E.I.)
 
-	
-	*
 A – La qualification de service public décidée par le législateur  
  Dans l’arrêt APREI (Conseil d’État, Section, 22 février 2007, Association du Personnel Relevant des Établissements pour Inadaptés (A.P.R.E.I.)), le Conseil d’État fait expressément référence à la qualification de service public décidée par le législateur.
  Il importe d’analyser les modalités d’une telle qualification ainsi que sa portée juridique. 
@@ -118,9 +116,6 @@ Après que la loi du 10 mai 2010 a qualifié de service public l’activité des
  Précision : Étant donné que le juge est soumis à la loi, il doit s’incliner devant la qualification de service public donnée par la loi à une activité déterminée, et ce, même si cette activité ne remplit pas les critères jurisprudentiels requis pour la qualification de service public.
 Dit d’une manière encore plus simple : obéissance est due à la loi.
 Il n’en va pas de même si la qualification de service public émane de l’administration. Dans ce cas, le juge est libre de réfuter (d’inverser) la qualification au regard des critères jurisprudentiels.
-**
-
-*
 B – La qualification de service public décidée par le juge : les deux critères jurisprudentiels exigés
  En l’absence de loi octroyant ou refusant expressément la qualification de service public à une activité donnée, il appartient au juge de dire si cette activité peut ou non être qualifiée de service public.
 Pour ce faire, le juge utilise les deux critères énoncés par la jurisprudence dite APREI amplifiée par l’arrêt Conseil d’État, Section, 22 février 2007, Association du Personnel Relevant des Établissements pour Inadaptés (A.P.R.E.I.).
@@ -183,7 +178,7 @@ Une personne publique ou personne morale de droit public est
  Réponse : NON, bien sûr que non. Ma commune est une personne publique, pas le maire de ma commune. Comme cela é été signalé plus haut, on dit couramment « personne publique », mais la formule juridique complète est « personne morale de droit public ». Dès lors, il est facile et impératif de comprendre qu’une personne publique est forcément une personne morale. Ce peut être ni un homme ni une femme. C’est forcément un groupement, une structure. 
  Question : Des exemples de personnes publiques ? 
  Réponse : Le schéma qui précède et les développements qui suivent ce passage indiquent les principaux exemples de personnes publiques.
-**
+
 b – Le lien indirect avec une personne publique
  L'expression « lien indirect avec une personne publique » sert à désigner l’hypothèse suivante :
 Une personne privée gère une activité d'intérêt général, mais avec l’habilitation (c’est-à-dire l’autorisation) et sous le contrôle d’une personne publique. 
@@ -197,8 +192,6 @@ L’habilitation peut prendre la forme d’une autorisation unilatérale ou d’
 * soit un contrat de concession de service public (ou un contrat de délégation de service public – DSP) 
 * soit un marché de service public. 
 
-***
-
 C – Synthèse :  Les modes de gestion des services publics
  Il s’agira ici de détailler, d’illustrer, de définir et donc de mieux comprendre le critère organique du service public, à savoir le lien direct ou indirect avec une personne publique.
 
@@ -211,7 +204,6 @@ La liberté pour les collectivités publiques de choisir le mode de gestion des 
 Ainsi, appartient-il en principe à la collectivité publique d’apprécier comment la gestion du service public dont elle a la charge doit être assurée – Conseil d’État, 17décembre 1997, Ordre des avocats à la Cour d’appel de Paris. 
 Par conséquent, le juge administratif se refuse à contrôler le choix effectué en la matière par la personne publique – Conseil d’État, 18 mars 1988, Loupias contre commune de Montreuil-Bellay.  
 Cette liberté n’est toutefois pas totale. Elle est atténuée par quelques dérogations significatives qu’il est opportun de présenter ci-dessous, en même temps que les différents modes de gestion envisageables. 
-**
 
 2 – Les différents modes de gestion envisageables
  Pour diverses que soient leurs dénominations les modes de gestion des services publics se laissent ranger dans l’une ou l’autre ou l’autre des deux catégories suivantes : 
@@ -226,12 +218,10 @@ Collectivité publique responsable d’une activité de service public. En princ
  En principe toujours, cette collectivité publique, qualifiée de « collectivité publique responsable », peut choisir 
 * de gérer en régie directe l’activité de service public qui lui a été confiée par la loi (2.2)
 * ou d’en déléguer (au sens large du mot) la gestion à une personne privée ou publique (2.3). 
-**
+
 2.2 – La gestion en régie directe par la collectivité publique responsable
 
-
 Définition : La régie directe (appelée parfois, simplement, régie) est un mode de gestion d’un service public qui consiste en la prise en charge directe du fonctionnement de ce service par la personne publique qui en a la responsabilité, avec ses propres moyens et ses propres agents.
-
 
 Même si elle peut paraître pléonastique, l’expression « régie directe » est d’usage courant en jurisprudence. 
  À titre d’illustration, Conseil d’État, 28 mai 2021, Commune de Sarlat-la-Canéda : « 1. Il ressort des pièces du dossier soumis au juge du fond que la commune de Sarlat-la-Canéda assure en régie directe la préparation et la fourniture des repas livrés aux cantines scolaires. »
@@ -407,7 +397,6 @@ Par exemple, le code de l’Éducation qualifie les universités d'établissemen
 En définitive, on peut estimer que la distinction service public à caractère administratif - service public à caractère industriel et commercial constitue le plan de clivage des activités de service public. 
  Question : À quand remonte la distinction SPA – SERVICE PUBLIC À CARACTÈRE INDUSTRIEL ET COMMERCIAL ? 
  Réponse : La distinction SPA – SPIC a été affirmée, pour la première fois avec éclat, dans une décision du Tribunal des conflits : Tribunal des conflits, 22 janvier 1921, Colonie de la Côte d’Ivoire contre Société commerciale de l’Ouest africain – arrêt dit du Bac d’Eloka4. 
-*
 
 2 – L’intérêt juridique de la distinction S.P.A. – S.P.I.C. : droit applicable et juge compétent 
  L’intérêt juridique de la distinction SPA – SPIC se situe à deux niveaux : le droit applicable et le juge compétent en cas de litige.
@@ -421,7 +410,6 @@ b. Le juge compétent en cas de litige :
  Le contentieux des SPIC relève de la compétence des juridictions judiciaires.
 L’usage de l’adverbe « globalement » dans tous les développements qui précèdent indique qu’il est chaque fois question d’un principe assorti d’exceptions. 
 Nous avons intentionnellement passé sous silence ces exceptions que les étudiants n’ont pas l’obligation de savoir en vue des épreuves d’examen.
-**
 
 3 – Les trois critères juridiques de la distinction S.P.A. – S.P.I.C. 
  La distinction SPA – SPIC a été affirmée, pour la première fois avec éclat, dans une décision du Tribunal des conflits : 
@@ -600,7 +588,6 @@ Certes, comme nous l’avons vu, l’administration a le droit de traiter diffé
 En d’autres termes, vous ne pouvez pas exiger de l’administration qu’elle vous traite différemment au motif que votre situation serait différente de celle des autres.
 **
 
-
 3.3 – Les corollaires du principe d’égalité devant le service public
 3.3.1 – La neutralité et la laïcité
  L’égalité des usagers implique l’impartialité et la neutralité du service public, 
@@ -666,6 +653,7 @@ Les « discriminations positives » sont également interdites lors du recruteme
  Le Conseil d’État suit exactement la même ligne jurisprudentielle que le Conseil constitutionnel : seule la capacité des candidats peut constituer un critère de sélection à l’entrée dans la fonction publique, à l’exclusion de tous autres critères. 
 Aussi, la Haute juridiction administrative censure-t-elle, pour l’accès aux emplois publics, tout système de sélection utilisant des considérations d’ordre social, familial, géographique ou autre, qui sont étrangères à la capacité des candidats et donc contraire aux exigences de l’article 6 de la Déclaration de 1789 : Conseil d’État, 14 février 1990, Fédération syndicaliste FO de la Défense.    
 **
+--- DOCUMENT 2: LA POLICE ADMINISTRATIVE ---
 SECTION II - LA FONCTION NORMATIVE : LA POLICE ADMINISTRATIVE
 
 Définition : La police administrative est une activité qui vise à assurer le maintien de l'ordre public, sans tendre à la recherche ou à l'arrestation des auteurs d'une infraction déterminée.
@@ -686,37 +674,24 @@ Rappelons que, selon Charles Eisenmann, l'administration remplit deux fonctions 
 1. Une fonction de prestation. Elle consiste à fournir aux administrés des prestations, c'est-à-dire des biens et des services - distribution d'eau, d'électricité, de gaz, enseignement, enlèvement et traitement des ordures ménagères… Bref à rendre service. L’expression « fonction de prestation » caractérise l'activité de service public (SECTION I) ;  
   2. Une fonction normative. Elle consiste à édicter des règles, des normes. Ces règles déterminent ce que doit être le comportement des administrés : obligation de porter un masque, limitation de vitesse, interdiction de projeter un film ou d'organiser une manifestation… L’expression « fonction normative » caractérise l'activité de police administrative (SECTION II).
 
-
- La distinction de Charles Eisenmann a le mérite de la clarté. Mais elle pêche par son manichéisme conceptuel. 
- Les deux fonctions sont, en fait, étroitement liées.  
- La fonction de prestation est remplie dans le cadre d'une réglementation. 
+La distinction de Charles Eisenmann a le mérite de la clarté. Mais elle pêche par son manichéisme conceptuel. 
+Les deux fonctions sont, en fait, étroitement liées.  
+La fonction de prestation est remplie dans le cadre d'une réglementation. 
       Exemple : les universités. Les usagers y bénéficient de prestations (enseignement, évidemment), tout en étant tenus au respect de certaines règles – pas toujours écrites d’ailleurs. 
  Inversement, la fonction normative n'exclut pas la fourniture de prestations. La police administrative apparaît aussi comme un service public.
  On ne peut retenir qu’une version revue et corrigée de la distinction : certaines activités administratives sont principalement des activités de prestation (SECTION I), d'autres principalement des activités normatives (SECTION II).
-*
 
-
-
-
-
+Ainsi donc, on peut dire que la police administrative, qui est principalement une activité normative, est accessoirement un service public.
+Mais c’est un service public différent des autres à deux points de vue.
 Premièrement, contrairement à la plupart des autres services publics, le service public de la police ne peut être délégué purement et simplement à une personne privée – Conseil d’État, assemblée, 17 juin 1932, Ville de Castelnaudary.  
 * Exemple 1 : Conseil d’État, section, 23 mai 1958, Consorts Amoudruz, Rec. p. 301. Une commune a concédé à une personne privée l’exploitation d’une plage publique ; mais, selon le juge, cette commune reste responsable de la sécurité des baigneurs (mission de police administrative).
 Deuxièmement, l’administration ne peut, en principe, exiger des bénéficiaires du service public de la police le paiement d’une redevance. Motif : le service public de la police est financé par l’impôt ; il s’ensuit qu’il est en principe gratuit pour l’usager.
-
-
-
-        I – L'identification de la police administrative
+I – L'identification de la police administrative
  D’un strict point de vue sémantique, la police administrative se prête à deux approches :  
   1. Une approche organique, adoptée par le grand public dans des assertions bien connues : « J’ai appelé la police » ; « la police l’a secourue » ; « la police a dispersé les manifestants » ; « la police est arrivée à temps », etc. On l’aura compris, l’approche organique consiste à entendre par police des femmes et des hommes chargés de missions de sécurité, souvent en uniforme, parfois en tenue civile ;  
   2. Une approche fonctionnelle : la police administrative désigne des activités, des missions, des fonctions liées à la sécurité, plus précisément à l’ordre public. 
- C’est la seconde approche (fonctionnelle) qui sera retenue dans ce cours, moyennant des précisions d’importance : Qu’est-ce que l’ordre public  Quel lien entre police et ordre public  S’agit-il d’un lien exclusif 
- Sommaire de cette première partie du cours
-A – La définition téléologique de la police administrative	10
-B – La distinction police administrative – police judiciaire	17
-
-	
-	*
-      A – La définition téléologique de la police administrative
+ C’est la seconde approche (fonctionnelle) qui sera retenue dans ce cours, moyennant des précisions d’importance : Qu’est-ce que l’ordre public ?  Quel lien entre police et ordre public  S’agit-il d’un lien exclusif ? 
+ A – La définition téléologique de la police administrative
  Voici la définition retenue dans ce cours : 
 
   Définition : La police administrative est une activité qui vise à assurer le maintien de l'ordre public, sans tendre à la recherche ou à l'arrestation des auteurs d'une infraction déterminée.
@@ -730,17 +705,9 @@ Et ce but, c'est le maintien de l'ordre public.
  Selon le Conseil constitutionnel, la sauvegarde de l’ordre public constitue un objectif de valeur constitutionnelle – Décision du 28 juillet 1989, Loi relative aux conditions de séjour et d’entrée des étrangers en France.
 À l’analyse, l’ordre public comprend plusieurs éléments qui se présentent comme autant de buts de police administrative. 
 En effet, somme toute, la police administrative consiste à assurer préventivement le respect de l’ordre public ou à le rétablir par des mesures non répressives.
-Sommaire de cette sous-partie I – A
-1 – Les buts principaux de la police administrative : sécurité, tranquillité et salubrité publiques	11
-2 – Les buts secondaires de la police administrative	11
-a – L’exclusion tacite de la moralité publique en tant que telle	11
-b – L’admission expresse du respect de la dignité de la personne humaine	13
- Conclusion sur la définition de la police administrative	15
- En définitive, voici le contenu de l’ordre public :	15
- Comment définir la police administrative lors d’une épreuve écrite ou orale d’examen :	
 
 1 – Les buts principaux de la police administrative : sécurité, tranquillité et salubrité publiques 
- De quoi se compose l’ordre public dont, rappelons-le, le maintien ou le rétablissement constitue la finalité de la police administrative  
+ De quoi se compose l’ordre public dont, rappelons-le, le maintien ou le rétablissement constitue la finalité de la police administrative ?  
 Des éléments de réponse sont fournis par l’article L. 2212-2 du code général des collectivités territoriales (un article qui reprend largement les dispositions de l’article 3 du décret de l’Assemblée constituante des 16-17 août 1790) :
 « La police […] a pour objet d'assurer le bon ordre, la sûreté, la sécurité et la salubrité publiques. 
 Elle comprend notamment : 
@@ -751,8 +718,7 @@ Suit une assez longue énumération de circonstances où la police administrativ
 • la tranquillité publique,
 • la salubrité publique.
 Personne ne conteste que l'ordre public comprenne ces trois éléments. La doctrine admet unanimement qu'ils constituent des buts de police administrative. C'est du reste ce que l'on appelle la trilogie classique, la trilogie traditionnelle, objective.
- L'ordre public comprend-il d'autres éléments 
-**
+L'ordre public comprend-il d'autres éléments ? 
 2 – Les buts secondaires de la police administrative
 a – L’exclusion tacite de la moralité publique en tant que telle
  La moralité publique est-elle une composante de l’ordre public 
@@ -786,7 +752,6 @@ Passage pertinent de cet arrêt :
  Depuis, rien d’aussi manifeste, même si l’on peut relever ici et là des indices incitant à penser que les préoccupations d’ordre moral ne sont pas totalement absentes de la jurisprudence.
 En définitive, il est légitime de soutenir que la moralité publique en tant que telle n’est plus une composante de l’ordre public au sens de la police administrative générale (définie plus haut).
 Une autre composante, à connotation morale, a fait son apparition : le respect de la dignité de la personne humaine.
-**
 b – L’admission expresse du respect de la dignité de la personne humaine
  À n’en pas douter, le respect de la dignité de la personne humaine est la dernière-née des composantes de l’ordre public.
 On peut parler de reconnaissance en deux temps.
@@ -818,9 +783,8 @@ Le respect de la dignité de la personne humaine, dernière composante de l’or
 
 Nota bene : Tacitement exclue de l’ordre public au sens de la police administrative générale, la moralité publique, en tant que telle, est parfois un but de police administrative spéciale. Exemple : La police spéciale des débits de boissons et des restaurants (code de la santé publique, article L.3332-15). 
 **
-*
- Comment définir la police administrative lors d’une épreuve écrite ou orale d’examen :
-
+Comment définir la police administrative lors d’une épreuve écrite ou orale d’examen ?
+Réponse en deux points :
 1. Vous écrivez ou vous dites : « La police administrative est une activité qui vise à assurer le maintien de l'ordre public, sans tendre à la recherche ou à l'arrestation des auteurs d'une infraction déterminée.»
 2. Puis, vous ajoutez : « Et l’ordre public comprend :
 - la sécurité publique,
@@ -940,7 +904,6 @@ Quatre précisions de nature à battre en brèche bien des idées reçues :
 2. En revanche, il est improbable qu’ait jamais été établie une liste exhaustive des nombreuses autorités administratives investies de pouvoirs de police administrative spéciale ;
 3. Certaines autorités détiennent à la fois des pouvoirs de police administrative générale et des pouvoirs de police administrative spéciale :  Premier ministre, préfets de département, maires ;
 4. D’autres autorités disposent de pouvoirs de police administrative spéciale, mais sont dépourvues de pouvoirs de police administrative générale : ministre de l’Intérieur, ministre de la Culture, ministre de la Santé, etc. 
-***
 2 – Les autorités de police administrative générale 
 a – Le Premier ministre
  Le Premier ministre se distingue à trois égards des autres titulaires de pouvoirs de police administrative générale : 
@@ -1172,11 +1135,13 @@ L’état d’urgence sécuritaire, c’est un régime exceptionnel de police d�
 d – L’état d’urgence sanitaire
 Définition de l’état d’urgence sanitaire :
 L’état d’urgence sanitaire, c’est un régime exceptionnel de police déclaré « en cas de catastrophe sanitaire mettant en péril, par sa nature et sa gravité, la santé de la population » – Loi n° 2020-290 du 23 mars 2020 d’urgence pour faire face à l’épidémie de covid-19. 
+
 **
 e – Le plan gouvernemental d'alerte et de prévention « Vigipirate »
 Définition du plan Vigipirate :
-Le plan Vigipirate est un dispositif d’alerte et de prévention qui vise à assurer la protection de la population et des sites sensibles dans un contexte de menace terroriste effective ou imminente.     
-**
+Le plan Vigipirate est un dispositif d’alerte et de prévention qui vise à assurer la protection de la population et des sites sensibles dans un contexte de menace terroriste effective ou imminente.   
+
+--- DOCUMENT 3: LES ACTES ADMINISTRATIFS UNILATÉRAUX ---
 CHAPITRE II – Les actes administratifs
 
 SECTION I - LES ACTES ADMINISTRATIFS UNILATÉRAUX
@@ -1214,9 +1179,6 @@ Définition : Une ligne directrice (ou directive) est un acte de portée génér
       A – Acte unilatéral et acte plurilatéral
  Comment distinguer un acte unilatéral d’un acte plurilatéral (ou contrat) 
  Comme le souligne l’adage bien connu, après deux tentatives infructueuses (1), la troisième (2) sera la bonne. 
-Sommaire de cette sous-partie I – A
-1 – Les critères inopérants	10
-2 – Le critère retenu	11
 
 1 – Les critères inopérants 
  Deux critères ont été proposés à l’effet de distinguer un acte unilatéral d’un acte plurilatéral (ou contrat) : 
@@ -1453,6 +1415,7 @@ Définition : Affecter l’ordonnancement juridique, c’est
 - soit modifier l’ordonnancement juridique 
 - soit réaffirmer le contenu de l’ordonnancement juridique. 
 
+
 **
 b – Les décisions explicites (ou expresses) et les décisions implicites.
  La distinction décision explicite (ou expresse) - décision repose sur la manière de décider.
@@ -1631,6 +1594,8 @@ Buts poursuivis par l’auteur de ces « lignes directrices » :
 ** 
 ii – La légalité et l’application de lignes directrices
 
+
+
 1. Des lignes directrices ne doivent pas méconnaître les buts visés par la réglementation qu’elles aident à faire appliquer.
 2. Elles ne doivent pas violer des principes supérieurs en vigueur.
 3. Enfin, elles ne peuvent lier le pouvoir d’appréciation de l’autorité chargée, en les appliquant, de prendre les décisions individuelles. 
@@ -1672,8 +1637,9 @@ Question : Importe-t-il de souligner la différence entre les deux affirmations 
  La première question peut recevoir l’une des deux réponses suivantes :
 1. Votre recours est irrecevable. Dans ce cas, moi, juge, je ne me poserai pas la seconde question, la procédure est terminée et vous êtes débouté ;
 2. Votre recours est recevable. Moi, juge, je suis alors en droit de me poser la seconde question, celle du bien-fondé de votre recours : est-ce que l’acte X est illégal et doit être annulé comme vous l’affirmez 
- La seconde question, celle du bien-fondé du recours, correspond à la question de la légalité de l’acte X ; elle diffère, on l’a vu, de la question de la recevabilité du recours.    
-***
+ La seconde question, celle du bien-fondé du recours, correspond à la question de la légalité de l’acte X ; elle diffère, on l’a vu, de la question de la recevabilité du recours.
+    
+--- DOCUMENT 4: LES CONTRATS ADMINISTRATIFS ---
 
 SECTION II - LES CONTRATS ADMINISTRATIFS
 
@@ -1707,6 +1673,9 @@ Définition : L’équation financière, c’est la théorie permettant l’inde
 Définition : Le fait du prince, c’est la théorie permettant l’indemnisation du cocontractant lorsque l'administration contractante, bien qu’elle n’agisse pas en tant que partie au contrat, modifie unilatéralement et indirectement les modalités d'exécution du contrat ou les prestations du cocontractant. 
 
 Définition : L’imprévision, c’est la théorie permettant d’obliger l'administration contractante à aider financièrement son cocontractant lorsqu'un événement imprévisible, (donc anormal) et indépendant de la volonté des parties bouleverse l'économie du contrat. 
+
+
+
 
 *  
 
@@ -2564,7 +2533,7 @@ Remarque terminale :
  Toutefois, en 2016, les pouvoirs publics ont intégré la théorie de l’imprévision dans le Code civil : 
  L’ordonnance du 10 février 2016 portant réforme du droit des contrats, du régime général et de la preuve des obligations a introduit dans le Code civil un article 1195 qui dispose :
 « Si un changement de circonstances imprévisible lors de la conclusion du contrat rend l'exécution excessivement onéreuse pour une partie qui n'avait pas accepté d'en assumer le risque, celle-ci peut demander une renégociation du contrat à son cocontractant. Elle continue à exécuter ses obligations durant la renégociation.
-En cas de refus ou d'échec de la renégociation, les parties peuvent convenir de la résolution du contrat, à la date et aux conditions qu'elles déterminent, ou demander d'un commun accord au juge de procéder à son adaptation. A défaut d'accord dans un délai raisonnable, le juge peut, à la demande d'une partie, réviser le contrat ou y mettre fin, à la date et aux conditions qu'il fixe. »
+En cas de refus ou d'échec de la renégociation, les parties peuvent convenir de la résolution du contrat, à la date et aux conditions qu'elles déterminent, ou demander d'un commun accord au juge de procéder à son adaptation. À défaut d'accord dans un délai raisonnable, le juge peut, à la demande d'une partie, réviser le contrat ou y mettre fin, à la date et aux conditions qu'il fixe. »
 
 3 – La force majeure  
 Conseil d’État, 29 janvier 1909, Compagnie des messageries maritimes et Compagnie générale transatlantique [grève générale reconnue comme cas de force majeure].
@@ -2574,7 +2543,8 @@ On en sait les caractères en droit public :
 - ne pouvant être prévu ni empêché par les parties (imprévisibilité dans sa survenance)  
 - et rendant absolument impossible l'exécution du contrat (irrésistibilité dans ses effets ; il ne s’agit pas d’une simple difficulté d’exécution). 
  Rappelons que le déficit permanent et définitif consécutif à une situation d’imprévision est assimilé à un cas de force majeure.
- La force majeure permet au cocontractant de demander au juge la résiliation du contrat. Les effets de la force majeure sont limités à la durée de l’événement.     
+ La force majeure permet au cocontractant de demander au juge la résiliation du contrat. Les effets de la force majeure sont limités à la durée de l’événement.
+
 `;
 
 export const DEFAULT_SYSTEM_INSTRUCTION = `
