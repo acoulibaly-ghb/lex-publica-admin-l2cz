@@ -135,6 +135,8 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
         case 'cas': prompt = "Soumets-moi un petit cas pratique sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
         case 'qcm': prompt = "Génère successivement un QCM de 3 questions sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
         case 'vraifaux': prompt = "Propose-moi successivement 3 affirmations Vrai/Faux sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
+        case 'arretsdefin': prompt = "Listez les arrêts liés à des définitions, SVP."; break;
+        case 'arretscles': prompt = "Listez les arrêts liés à des notions clés, SVP."; break;
     }
     if (prompt) sendMessage(prompt);
   };
