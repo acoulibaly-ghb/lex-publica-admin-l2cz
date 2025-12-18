@@ -132,7 +132,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
     switch(action) {
         case 'juris': prompt = "Explique-moi simplement la notion suivante :"; break;
         case 'dissert': prompt = "Propose-moi un sujet de dissertation et un plan détaillé (I. II.) basé sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
-        case 'fiche': prompt = "Aide-moi à faire une fiche d'arrêt méthodologique sur la base de mes dernières questions."; break;
+        case 'fiche': prompt = "Soumets-moi un petit cas pratique sur un ou plusieurs thèmes du cours que je vais t'indiquer."; break;
         case 'glossary': prompt = "Dresse-moi un glossaire des 5 termes juridiques les plus complexes de ce cours."; break;
         case 'cas': prompt = "Propose-moi un court cas pratique pour tester mes connaissances."; break;
     }
