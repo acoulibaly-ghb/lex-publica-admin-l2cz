@@ -10,6 +10,7 @@ import { GoogleGenAI } from '@google/genai';
 import ReactMarkdown from 'react-markdown';
 import { ChatMessage } from '../types';
 import { useChatStore } from '../hooks/useChatStore';
+import { DEFAULT_COURSE_CONTENT } from '../constants';
 
 interface TextChatProps {
   courseContent: string;
