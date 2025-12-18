@@ -129,11 +129,11 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
   const handleQuickAction = (action: string) => {
     let prompt = "";
     switch(action) {
-        case 'juris': prompt = "Quels sont les arrêts de principe essentiels à retenir dans ce cours ?"; break;
-        case 'dissert': prompt = "Propose-moi un sujet de dissertation et un plan détaillé (I. II.) basé sur le cours."; break;
-        case 'fiche': prompt = "Aide-moi à faire une fiche d'arrêt méthodologique sur la base de mes dernières questions."; break;
-        case 'glossary': prompt = "Dresse-moi un glossaire des 5 termes juridiques les plus complexes de ce cours."; break;
-        case 'cas': prompt = "Propose-moi un court cas pratique pour tester mes connaissances."; break;
+        case 'explain': prompt = "Choisis une notion clé ou une définition importante du cours et explique-la de manière pédagogique."; break;
+        case 'quiz': prompt = "Génère une question de quiz aléatoire sur le cours."; break;
+        case 'qcm': prompt = "Crée un QCM avec 3 choix et la réponse expliquée."; break;
+        case 'cas': prompt = "Propose un petit cas pratique juridique basé sur le cours."; break;
+        case 'vrai-faux': prompt = "Donne-moi une affirmation VRAI ou FAUX à vérifier."; break;
     }
     if (prompt) sendMessage(prompt);
   };
@@ -223,13 +223,23 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
           </div>
 
           <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-            {/* BOUTONS D'ACTIONS JURIDIQUES */}
-            <div className="flex gap-2 mb-4 overflow-x-auto pb-2 no-scrollbar">
-                <button onClick={() => handleQuickAction('juris')} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-lg hover:bg-blue-100 transition-all whitespace-nowrap"><Gavel size={14} /> Jurisprudence</button>
-                <button onClick={() => handleQuickAction('dissert')} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 rounded-lg hover:bg-indigo-100 transition-all whitespace-nowrap"><Layout size={14} /> Plan Dissertation</button>
-                <button onClick={() => handleQuickAction('fiche')} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 dark:bg-emerald-900/30 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 rounded-lg hover:bg-emerald-100 transition-all whitespace-nowrap"><FileSignature size={14} /> Fiche d'arrêt</button>
-                <button onClick={() => handleQuickAction('glossary')} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-amber-700 bg-amber-50 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-200 dark:border-amber-800 rounded-lg hover:bg-amber-100 transition-all whitespace-nowrap"><Search size={14} /> Glossaire</button>
-                <button onClick={() => handleQuickAction('cas')} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 dark:bg-rose-900/30 dark:text-rose-300 border border-rose-200 dark:border-rose-800 rounded-lg hover:bg-rose-100 transition-all whitespace-nowrap"><BookOpen size={14} /> Cas Pratique</button>
+            {/* Quick Actions */}
+            <div className="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
+                <button onClick={() => handleQuickAction('explain')} className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-900/30 hover:bg-cyan-100 dark:hover:bg-cyan-900/50 rounded-full transition-colors whitespace-nowrap">
+                    <Lightbulb size={14} /> Explication
+                </button>
+                <button onClick={() => handleQuickAction('quiz')} className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 rounded-full transition-colors whitespace-nowrap">
+                    <HelpCircle size={14} /> Quiz Rapide
+                </button>
+                <button onClick={() => handleQuickAction('qcm')} className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-900/30 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-full transition-colors whitespace-nowrap">
+                    <CheckCircle size={14} /> Générer QCM
+                </button>
+                <button onClick={() => handleQuickAction('cas')} className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/50 rounded-full transition-colors whitespace-nowrap">
+                    <BookOpen size={14} /> Cas Pratique
+                </button>
+                <button onClick={() => handleQuickAction('vrai-faux')} className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full transition-colors whitespace-nowrap">
+                    <Sparkles size={14} /> Vrai/Faux
+                </button>
             </div>
 
             {attachedFile && (
