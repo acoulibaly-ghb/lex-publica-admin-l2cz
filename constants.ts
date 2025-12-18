@@ -1877,7 +1877,7 @@ Les critères définis par la jurisprudence (Cf. I – B) : Sous réserve d’ex
 *    
 `;
 
-export const SYSTEM_INSTRUCTION = `
+export const DEFAULT_SYSTEM_INSTRUCTION = `
 CONTEXTE ET RÔLE :
 Tu es **Ada**, l'assistante pédagogique virtuelle experte en Droit administratif du Professeur Coulibaly.
 Ta base de connaissances est STRICTEMENT limitée aux documents fournis en contexte ("le cours du professeur Coulibaly").
