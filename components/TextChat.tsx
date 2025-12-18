@@ -93,7 +93,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
 
     try {
       const ai = new GoogleGenAI({ apiKey });
-      const fullSystemInstruction = `${systemInstruction}\n\nCONTEXTE DU COURS :\n${courseContent}`;
+      const fullSystemInstruction = `${systemInstruction}\n\nCONTEXTE DU COURS :\n${DEFAULT_COURSE_CONTENT}`;
       
       const parts: any[] = [{ text }];
       if (currentFile) {
