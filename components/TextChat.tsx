@@ -101,7 +101,7 @@ export const TextChat: React.FC<TextChatProps> = ({ courseContent, systemInstruc
       }
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.5-flash',
         contents: [
             ...(activeSession?.messages || []).map(m => ({ role: m.role, parts: [{ text: m.text }] })),
             { role: 'user', parts: parts }
